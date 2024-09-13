@@ -42,7 +42,7 @@ const waterBucket = (x: number, y:number, z:number) : string[] | string  => {
     return 'No Solution';
 }
 
-//controlador recibe y llama a waterBucket
+//controlador recibe y llama a algoritmo waterBucket
 export const solucion = (req: Request, res: Response): void => {
     const {x, y, z} = req.body;
 
