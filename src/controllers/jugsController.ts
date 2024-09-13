@@ -5,16 +5,16 @@ const maximoCD = (a: number, b: number) : number => {
     return b === 0 ? a : maximoCD(b, a % b);
 };
 
+//algoritmo
 const waterBucket = (x: number, y:number, z:number) : string[] | string  => {
-
-    let visitado = new Set<string>();
-    let cola : [number, number][] = [[0, 0]]; 
-    let pasos: string[] = [];
 
     //opciones sin solucion
     if (z > Math.max(x, y)) return 'No solution'
     if (z % maximoCD(x, y) !== 0) return 'No solution'
 
+    let visitado = new Set<string>();
+    let cola : [number, number][] = [[0, 0]]; 
+    let pasos: string[] = [];
 
     while (cola.length > 0) {
         let [a, b] = cola.shift()!;
@@ -38,7 +38,19 @@ const waterBucket = (x: number, y:number, z:number) : string[] | string  => {
         ];
 
     }
-    
+
     return 'No Solution';
 }
 
+//controlador recibe y llama a waterBucket
+export const solucion = (req: Request, res: Response): void => {
+    const {x, y, z} = req.body;
+
+    if( typeof x !== "number" || typeof y !== "number" || typeof z !== "number") {
+        res.status(400).json( {error: 'Los parametros deber ser numeros'} );
+        return;
+    }
+
+    const resultado = waterBucket(x, y, z);
+    res.json( { pasos: resultado} )
+};
