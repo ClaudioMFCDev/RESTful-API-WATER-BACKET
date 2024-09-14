@@ -9,3 +9,5 @@ app.use(express.json());
 
 // rutas
 app.use('/api/jugs', jugsRoute);
+
+export default app;

@@ -4,6 +4,6 @@ import { solucion } from "../controllers/jugsController";
 
 const router = Router();
 
-router.post('solucion', solucion); //ruta
+router.post('/solucion', solucion); //ruta de solucion
 
 export default router;
