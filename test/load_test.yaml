@@ -1,12 +1,12 @@
 config:
-  target: "http://localhost:3000"  # La URL de tu API
+  target: "http://localhost:3000"
   phases:
-    - duration: 5   # Duración de la prueba (30 segundos)
+    - duration: 5   
       arrivalRate: 10  # Número de solicitudes por segundo
 scenarios:
   - flow:
       - post:
-          url: "/api/jugs/solucion"  # Ruta de tu API
+          url: "/api/jugs/solucion"
           json:
             key1: "1"
             key2: "50"
